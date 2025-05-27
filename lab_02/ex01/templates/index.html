@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành An toàn thông tin nâng cao</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #006994); /* Sea blue gradient */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 105, 148, 0.1); /* Sea blue accent */
+            padding: 40px;
+            max-width: 650px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            border: 1px solid rgba(0, 105, 148, 0.3); /* Sea blue border */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo-img {
+            width: 35%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #006994; /* Sea Blue */
+            font-size: 2.5rem;
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        h5 {
+            color: #ecf0f1;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            background: rgba(0, 105, 148, 0.7); /* Sea blue background */
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        li {
+            margin: 0;
+        }
+        a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #006994, #2282A4); /* Sea blue gradient */
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        a:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        a:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(45deg, #2282A4, #459BB7); /* Darker sea blue gradient */
+            box-shadow: 0 5px 15px rgba(0, 105, 148, 0.4);
+        }
+        a i {
+            margin-right: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        .clock {
+            font-size: 1.2rem;
+            color: #006994;
+            font-weight: bold;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 90%;
+            }
+            .logo-img {
+                width: 50%;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            a {
+                padding: 12px 20px;
+            }
+            .clock {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://dongphucvina.vn/wp-content/uploads/2023/05/hutech-logo.jpeg" alt="HUTECH Logo" class="logo-img">
+        <h1>BÀI THỰC HÀNH BẢO MẬT THÔNG TIN NÂNG CAO</h1>
+        <h5>Ngô Nguyễn Tiến Đạt - 2280600597</h5>
+        <ul>
+            <li><a href="/caesar"><i class="fas fa-lock"></i> Caesar Cipher</a></li>
+            <li><a href="/vigenere"><i class="fas fa-key"></i> Vigenere Cipher</a></li>
+            <li><a href="/railfence"><i class="fas fa-shield-alt"></i> Rail Fence Cipher</a></li>
+            <li><a href="/playfair"><i class="fas fa-shield-alt"></i> Playfair Cipher</a></li>
+        </ul>
+        <div class="clock" id="clock">10:04 AM +07, Tuesday, May 27, 2025</div>
+        <div class="footer">
+            <p>Developed with ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'Asia/Ho_Chi_Minh' };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            const dateString = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('clock').textContent = `${timeString} +07, ${dateString}`;
+        }
+        setInterval(updateClock, 1000); // Update every second
+        updateClock(); // Initial call
+    </script>
+</body>
+</html>

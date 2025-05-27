@@ -1,4 +1,4 @@
-from cipher.transposition import TranspositionCipher
+
 from cipher.playfair import PlayfairCipher
 from cipher.railfence import RailFenceCipher
 from cipher.vigenere import VigenereCipher
