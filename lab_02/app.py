@@ -42,7 +42,7 @@ def vigenere_encrypt():
     text = request.form['plain_text']
     key = request.form['key']
     vigenere = VigenereCipher()
-    encrypted_text = vigenere.encrypt_text(text, key)
+    encrypted_text = vigenere.vigenere_encrypt(text, key)
     return f"text: {text}<br/>key: {key}<br/>encrypted text: {encrypted_text}"
 
 @app.route("/vigenere/decrypt", methods=['POST'])
@@ -50,7 +50,7 @@ def vigenere_decrypt():
     text = request.form['cipher_text']
     key = request.form['key']
     vigenere = VigenereCipher()
-    decrypted_text = vigenere.decrypt_text(text, key)
+    decrypted_text = vigenere.vigenere_decrypt(text, key)
     return f"text: {text}<br/>key: {key}<br/>decrypted text: {decrypted_text}"
 
 # Routes for Rail Fence Cipher
@@ -63,7 +63,7 @@ def railfence_encrypt():
     text = request.form['plain_text']
     rails = int(request.form['rails'])
     railfence = RailFenceCipher()
-    encrypted_text = railfence.encrypt_text(text, rails)
+    encrypted_text = railfence.rail_fence_encrypt(text, rails)
     return f"text: {text}<br/>rails: {rails}<br/>encrypted text: {encrypted_text}"
 
 @app.route("/railfence/decrypt", methods=['POST'])
@@ -71,7 +71,7 @@ def railfence_decrypt():
     text = request.form['cipher_text']
     rails = int(request.form['rails'])
     railfence = RailFenceCipher()
-    decrypted_text = railfence.decrypt_text(text, rails)
+    decrypted_text = railfence.rail_fence_decrypt(text, rails)
     return f"text: {text}<br/>rails: {rails}<br/>decrypted text: {decrypted_text}"
 
 # Routes for Playfair Cipher
